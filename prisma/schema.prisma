@@ -1,0 +1,52 @@
+datasource db {
+  provider = "postgresql"
+}
+
+generator client {
+  provider = "prisma-client"
+  output   = "./generated"
+}
+
+model Mode {
+  id          String   @id @default(cuid())
+  name        String
+  description String?
+  isCurrent   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  projects Project[]
+}
+
+model Project {
+  id          String        @id @default(cuid())
+  title       String
+  description String?
+  status      ProjectStatus @default(ACTIVE)
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  modeId String
+  mode   Mode   @relation(fields: [modeId], references: [id])
+
+  reEntryNote ReEntryNote?
+}
+
+model ReEntryNote {
+  id           String   @id @default(cuid())
+  whereLeftOff String?
+  nextStep     String?
+  blockers     String?
+  links        String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  projectId String  @unique
+  project   Project @relation(fields: [projectId], references: [id])
+}
+
+enum ProjectStatus {
+  ACTIVE
+  PARKED
+  ARCHIVED
+}

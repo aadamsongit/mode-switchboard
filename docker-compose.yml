@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:16
+    container_name: mode-switchboard-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: amber
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: mode_switchboard
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

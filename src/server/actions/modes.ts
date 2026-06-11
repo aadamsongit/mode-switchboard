@@ -6,7 +6,7 @@ export async function createModeAction(formData: FormData) {
   const name = String(formData.get("name") ?? "").trim();
 
   if (!name) {
-    return { ok: false, error: "Name is required" };
+    return;
   }
 
   await prisma.mode.create({
@@ -15,5 +15,5 @@ export async function createModeAction(formData: FormData) {
     },
   });
 
-  return { ok: true };
+  return;
 }

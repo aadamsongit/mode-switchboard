@@ -32,7 +32,7 @@ As a user, I want to set my current mode so the app foregrounds the projects I a
 - Multiple users
 - Public sharing
 - Mobile app
-- AI suggestions
+- AI suggestions (? UX notes*)
 - Notifications
 - Polished UI
 

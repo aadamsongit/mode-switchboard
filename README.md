@@ -74,3 +74,8 @@ erDiagram
 This mermaids diagram represents data models. Do not modify the structure of the data models for now.
 
 The first vertical slice has been tested with the UI. E2E Playwright tests are now available and shadcn is installed. 
+
+# Rules of this Open Source
+
+You push it, you own it, wherever it came from. Be prepared to explain any PRs in a code review or in comments.
+

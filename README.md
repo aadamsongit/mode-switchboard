@@ -70,3 +70,7 @@ erDiagram
     datetime updatedAt
   }
 ```
+
+This mermaids diagram represents data models. Do not modify the structure of the data models for now.
+
+The first vertical slice has been tested with the UI. E2E Playwright tests are now available and shadcn is installed. 
